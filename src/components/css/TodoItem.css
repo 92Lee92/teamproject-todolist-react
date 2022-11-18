@@ -35,7 +35,10 @@
     flex:1; /*체크, 엑스를 제외한 공간 다 채우기*/
     word-break:break-all;
 }
-
+.isComplete{
+    text-decoration: line-through;
+    color: #adb5bd;
+}
 .isComplete-mark{
     font-size: 1.5rem;
     line-height: 1rem;

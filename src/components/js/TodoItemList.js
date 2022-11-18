@@ -2,14 +2,30 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 class TodoItemList extends React.Component{
-    render(){
-        const {todos,onToggle,onRemove} = this.props;
+    //**Form.js에서 Hook(useState)사용으로 인해 제거 */
+    // shouldComponentUpdate(nextProps,nextState){
+    //     return this.props.todos !== nextProp.todos;
+    // }
 
+    render(){
+        const{todos, onToggle,onRemove} = this.props;
+        console.log(todos);
+
+       const todoList=todos.map(
+        ({id,content,isComplete})=>(
+            <TodoItem
+            id={id}
+            content={content}
+            isComplelte={isComplete}
+            onToggle={onToggle}
+            onRemove={onRemove}
+            key={id}/>
+        )
+       );
+        
         return(
             <div>
-                <TodoItem content = "TodoItem1"/>
-                <TodoItem content = "TodoItem2"/>
-                <TodoItem content = "TodoItem3"/>
+                {todoList}
 
             </div>
         );
